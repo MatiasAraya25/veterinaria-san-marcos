@@ -6,6 +6,6 @@ function CampoTexto(props) {
         value = {props.value}
         onChange = {props.onChange}
         />
-    )
+    );
 }
-export default CampoTexto;
+export default CampoTexto; 
