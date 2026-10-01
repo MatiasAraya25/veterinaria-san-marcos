@@ -14,3 +14,4 @@ function Selector (props) {
     )
 }
 
+export default Selector;
