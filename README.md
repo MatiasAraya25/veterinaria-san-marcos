@@ -1,16 +1,28 @@
-# React + Vite
+# veterinaria-san-marcos
+Proyecto Full Stack 2
+Nombre del equipo: Team Rocket
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-Currently, two official plugins are available:
+Integrantes: 
+Matías Araya Venegas, mata.araya@duocuc.cl
+Natanael Valenzuela, na.valenzuelap@duocuc.cl
+Esteban Acuña, este.acuna@duocuc.cl
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+Caso: Veterinaria San Marcos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the Oxlint configuration
+Descripción del caso: La Veterinaria San Marcos hace todo a mano, todo a papel, tanto el ingreso y la agenda de clientes , la ficha de los pacientes, las facturas, básicamente todo el papeleo. Incluso, la venta de productos era solo presencial. Por eso haremos una página web donde se  todo lo antes mencionado, para llegar a más clientes además de agilizar y digitalizar el sistema actual.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+
+Estructura del proyecto: atoms, molecules, organisms, templates, pages, services, utils.
+
+
+Tecnologías utilizadas: React Bootstrap, Vite
+
+
+Cómo ejecutar el proyecto:npm install y npm run dev.
+
+
+Material complementario: https://drive.google.com/drive/folders/14uv288wBqot90gsA3A5HgwN1aOmsDZ9a?usp=drive_link
+
