@@ -1,0 +1,38 @@
+export const servicios =[
+    {
+        codigo: 'SV001',
+        categoria: 'Consultas',
+        nombre: 'Consulta general',
+        epecie: 'Perro / Gato',
+        duracion: '30 min',
+        precio: 15000,
+        observaciones: '',
+    },
+    {
+        codigo: 'SV002',
+        categoria: 'Consultas',
+        nombre: 'Consulta urgencia',
+        epecie: 'Perro / Gato',
+        duracion: '30 min',
+        precio: 25000,
+        observaciones: 'Fuera de horario +$10.000',
+    },
+    {
+        codigo: 'VA001',
+        categoria: 'Vacunación',
+        nombre: 'Vacuna antirrábica canina',
+        epecie: 'Perro',
+        duracion: '10 min',
+        precio: 12000,
+        observaciones: 'Obligatoria por ley',
+    },
+    {
+        codigo: 'CI003',
+        categoria: 'Cirugía',
+        nombre: 'Esterilización hembra felina',
+        epecie: 'Gata',
+        duracion: '60 min',
+        precio: 65000,
+        observaciones: 'Incluye anestesia y hospitalización 12h',
+    },
+];
