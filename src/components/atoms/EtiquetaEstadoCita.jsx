@@ -14,3 +14,4 @@ function EtiquetaEstadoCita({ estado = '', className = '' }) {
 }
 
 export default EtiquetaEstadoCita;
+
