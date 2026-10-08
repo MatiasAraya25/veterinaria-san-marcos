@@ -1,0 +1,10 @@
+[33m38c9043[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #2 from MatiasAraya25/cambios-esteban
+[33m0e02ce1[m se agregaron componentes y un atoms como "EtiquetaEstadoCita","filaCita" y "SelectorFechaHora"
+[33ma04e8bb[m[33m ([m[1;31morigin/cambios-esteban[m[33m)[m Se sgeneró registro de  datos en js, se relizó ListaServicios en Organismos y Servicios para la página.
+[33m3b96c9c[m[33m ([m[1;31morigin/matias[m[33m)[m Merge branch 'matias'
+[33mf9905aa[m hice el navbar -matias araya
+[33m5227db4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mNatanael[m[33m, [m[1;32mmain[m[33m)[m cambios de matias a main
+[33m6618386[m agregue buscadorServicios.jsx -matias
+[33m47c344d[m cambios de rama matias a main
+[33m92eea72[m arregle un error de sintaxis de selector.jsx -matias
+[33mb48a448[m Merge pull request #1 from MatiasAraya25:cambios-esteban
