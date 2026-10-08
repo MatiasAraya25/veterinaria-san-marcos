@@ -44,3 +44,4 @@ function FilaCita({ cita, mostrarAcciones = false, onConfirmar, onProponer, onCa
 }
 
 export default FilaCita;
+
