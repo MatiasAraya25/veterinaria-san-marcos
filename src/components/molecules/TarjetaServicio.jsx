@@ -1,14 +1,8 @@
 import EtiquetaEspecie from '../atoms/EtiquetaEspecie';
 import Boton from '../atoms/Boton';
+import { formatoCLP } from '../../utils/formato';
 
-const formatoCLP = (valor) =>
-  new Intl.NumberFormat('es-CL', {
-    style: 'currency',
-    currency: 'CLP',
-    maximumFractionDigits: 0,
-  }).format(valor);
-
-function TarjetaServicio({ servicio, onSolicitar }) {
+function TarjetaServicio({ servicio, onSolicitar, onVerDetalle  }) {
   const { codigo, categoria, nombre, especie, duracion, precio, observaciones } = servicio;
 
   return (
@@ -19,7 +13,18 @@ function TarjetaServicio({ servicio, onSolicitar }) {
           <EtiquetaEspecie especie={especie} />
         </header>
 
-        <h3 className="card-title h5">{nombre}</h3>
+        <h3 className="card-title h5">
+          <a
+            href={`/servicios/${codigo}`}
+            className="text-reset text-decoration-none"
+            onClick={(e) => {
+              e.preventDefault()
+              onVerDetalle?.(codigo)
+            }}
+         >
+            {nombre}
+          </a>
+        </h3>
 
         <dl className="d-flex gap-2 mb-1">
           <dt className="fw-normal">Duración:</dt>

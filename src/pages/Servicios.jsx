@@ -1,17 +1,19 @@
-import ListaServicios from "../components/organisms/ListaServicios";
-import { servicios } from "../data/servicios";
+import { useNavigate } from 'react-router-dom'
+import { PlantillaPublica } from '../components/templates/PlantillaPublica/PlantillaPublica'
+import ListaServicios from '../components/organisms/ListaServicios'
+import { servicios } from '../data/servicios'
 
-function Servicios() {
-    const manejarSolicitud = (codigo) => {
-        console.log('Solicitar cita para:', codigo);
-    };
+export default function Servicios() {
+  const navigate = useNavigate()
 
-    return (
-        <main className="container py-4">   
-            <h1 className="mb-4">Servicios Veterinaria San Marcos</h1>
-            <ListaServicios servicios={servicios} onSolicitar={manejarSolicitud}/>
-        </main>
-    );
+  return (
+    <PlantillaPublica>
+      <h1 className="mb-4">Servicios Veterinaria San Marcos</h1>
+      <ListaServicios
+        servicios={servicios}
+        onSolicitar={(codigo) => navigate(`/solicitar-cita/${codigo}`)}
+        onVerDetalle={(codigo) => navigate(`/servicios/${codigo}`)}
+      />
+    </PlantillaPublica>
+  )
 }
-
-export default Servicios;
