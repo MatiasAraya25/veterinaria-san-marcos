@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom'
-import { PlantillaPublica } from '../components/templates/PlantillaPublica/PlantillaPublica'
+import PlantillaPublica from '../components/templates/PlantillaPublica'
 import EtiquetaEspecie from '../components/atoms/EtiquetaEspecie'
 import Boton from '../components/atoms/Boton'
 import { servicios } from '../data/servicios'
