@@ -2,7 +2,7 @@ import { Container, Nav } from "react-bootstrap";
 
 function Navbar(){
     return(
-        <BsNavbar bs = "dark" variant = "dark" expands = "Ig" className = "mb-4">
+        <BsNavbar bg = "dark" variant = "dark" expand = "lg" className = "mb-4">
             <Container>
                 <BsNavbar.Brand href = "/">Veterinaria San Marcos</BsNavbar.Brand>
                 <BsNavbar.Toggle aria-controls = "navbar-principal"/>  

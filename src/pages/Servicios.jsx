@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { PlantillaPublica } from '../components/templates/PlantillaPublica/PlantillaPublica'
+import PlantillaPublica from '../components/templates/PlantillaPublica'
 import ListaServicios from '../components/organisms/ListaServicios'
 import { servicios } from '../data/servicios'
 
