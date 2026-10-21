@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import PlantillaPublica from '../components/templates/PlantillaPublica';
 import EtiquetaEstadoCita from '../components/atoms/EtiquetaEstadoCita';
@@ -32,3 +33,24 @@ function MisCitas() {
                         <Link className="btn btn-primary" to="/solicitar-cita">Solicitar cita</Link>
                         </PlantillaPublica>; }
 export default MisCitas;
+=======
+import { useNavigate } from 'react-router-dom'
+import PlantillaPublica from '../components/templates/PlantillaPublica'
+import ListaMisCitas from '../components/organisms/ListaMisCitas'
+import { listarCitas } from '../data/citas'
+
+export default function MisCitas() {
+  const navigate = useNavigate()
+  const citas = listarCitas()
+
+  return (
+    <PlantillaPublica>
+      <h1 className="mb-4">Mis citas</h1>
+      <ListaMisCitas
+        citas={citas}
+        onSolicitar={() => navigate('/solicitar-cita')}
+      />
+    </PlantillaPublica>
+  )
+}
+>>>>>>> f82cdbf29a2bc97836a998d51dac0f39961ab2d5
