@@ -1,6 +1,13 @@
+import Boton from '../atoms/Boton';
 import EtiquetaEstadoCita from '../atoms/EtiquetaEstadoCita';
 
-function FilaCita({ cita, mostrarAcciones = false, onConfirmar, onProponer, onCancelar }) {
+function FilaCita({
+  cita,
+  mostrarAcciones = false,
+  onConfirmar,
+  onProponer,
+  onCancelar,
+}) {
   return (
     <tr>
       <td>{cita.id}</td>
@@ -8,34 +15,32 @@ function FilaCita({ cita, mostrarAcciones = false, onConfirmar, onProponer, onCa
       <td>{cita.servicio}</td>
       <td>{cita.fecha}</td>
       <td>{cita.hora}</td>
+
       <td>
         <EtiquetaEstadoCita estado={cita.estado} />
       </td>
+
       {mostrarAcciones && (
         <td>
           <div className="d-flex gap-2 flex-wrap">
-            <button
-              type="button"
-              className="btn btn-sm btn-success"
+            <Boton
+              texto="Confirmar"
+              variante="success"
               onClick={() => onConfirmar?.(cita)}
               disabled={cita.estado === 'confirmada'}
-            >
-              Confirmar
-            </button>
-            <button
-              type="button"
-              className="btn btn-sm btn-warning"
+            />
+
+            <Boton
+              texto="Proponer horario"
+              variante="warning"
               onClick={() => onProponer?.(cita)}
-            >
-              Proponer horario
-            </button>
-            <button
-              type="button"
-              className="btn btn-sm btn-outline-danger"
+            />
+
+            <Boton
+              texto="Rechazar"
+              variante="outline-danger"
               onClick={() => onCancelar?.(cita)}
-            >
-              Rechazar
-            </button>
+            />
           </div>
         </td>
       )}
@@ -44,4 +49,3 @@ function FilaCita({ cita, mostrarAcciones = false, onConfirmar, onProponer, onCa
 }
 
 export default FilaCita;
-
