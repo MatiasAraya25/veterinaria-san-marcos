@@ -1,4 +1,24 @@
-import Navbar from '../organisms/Navbar';
-import Footer from '../organisms/Footer';
-function PlantillaAdmin({ children }) { return <div className="d-flex flex-column min-vh-100"><Navbar/><main className="container flex-grow-1 py-4"><div className="d-flex justify-content-between align-items-center mb-3"><span className="badge text-bg-dark">Panel de administración</span></div>{children}</main><Footer/></div>; }
-export default PlantillaAdmin;
+import { useNavigate } from 'react-router-dom'
+import Navbar from '../organisms/Navbar'
+import Footer from '../organisms/Footer'
+import { categorias } from '../../data/categorias'
+
+function PlantillaAdmin(props) {
+  const navigate = useNavigate()
+
+  return (
+    <div className="d-flex flex-column min-vh-100">
+      <Navbar
+        categorias={categorias}
+        onNavegar={navigate}
+        onBuscar={(texto) => navigate(`/buscar/${encodeURIComponent(texto)}`)}/>
+      <main className="container flex-grow-1 py-4">
+        <p className="etiqueta-admin">Panel de administración</p>
+        {props.children}
+      </main>
+      <Footer/>
+    </div>
+  )
+}
+
+export default PlantillaAdmin
