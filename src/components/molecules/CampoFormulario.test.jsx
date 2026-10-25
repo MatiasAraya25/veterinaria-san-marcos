@@ -1,29 +1,19 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import FormularioLogin from './FormularioLogin'
+import CampoFormulario from './CampoFormulario'
 
-describe('FormularioLogin', () => {
-  
-  it('no llama a onEnviar y muestra los errores si los campos están vacíos', async () => {
-    const onEnviar = vi.fn()
-    render(<FormularioLogin onEnviar={onEnviar}/>)
+describe('CampoFormulario', () => {
+  it('muestra el mensaje de error y marca el campo con la clase campo-error', () => {
+    render(
+      <CampoFormulario
+        id="cita-mascota"
+        etiqueta="Nombre de la mascota"
+        value=""
+        onChange={() => {}}
+        error="Ingresa el nombre de tu mascota"/>
+    )
+    expect(screen.getByText('Ingresa el nombre de tu mascota')).toBeInTheDocument()
 
-    await userEvent.click(screen.getByRole('button', { name: 'Ingresar' }))
-
-    expect(onEnviar).not.toHaveBeenCalled()
-    expect(screen.getByText('Ingresa tu correo')).toBeInTheDocument()
-    expect(screen.getByText('La contraseña debe tener al menos 6 caracteres')).toBeInTheDocument()
-  })
-
-  it('llama a onEnviar con el correo cuando todo es válido', async () => {
-    const onEnviar = vi.fn()
-    render(<FormularioLogin onEnviar={onEnviar}/>)
-
-    await userEvent.type(screen.getByLabelText('Correo electrónico'), 'ana@correo.cl')
-    await userEvent.type(screen.getByLabelText('Contraseña'), '123456')
-    await userEvent.click(screen.getByRole('button', { name: 'Ingresar' }))
-
-    expect(onEnviar).toHaveBeenCalledWith({ email: 'ana@correo.cl' })
+    expect(screen.getByLabelText('Nombre de la mascota')).toHaveClass('campo-error')
   })
 })
