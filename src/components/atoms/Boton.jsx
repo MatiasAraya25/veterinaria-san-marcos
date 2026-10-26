@@ -5,8 +5,10 @@ function Boton(props) {
   return (
     <button
       type={tipo}
-      className={`btn btn-${variante} ${props.className || ''}`}
-      onClick={props.onClick} disabled={props.disabled}>
+      className={`btn btn-${variante}`}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
       {props.texto}
     </button>
   )
