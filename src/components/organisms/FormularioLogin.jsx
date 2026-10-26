@@ -1,40 +1,50 @@
-import { Container, Row, Col, Form } from 'react-bootstrap';
-import CampoTexto from '../atoms/CampoTexto';
-import Boton from '../atoms/Boton';
-import CampoFormulario from '../molecules/CampoFormulario';
+import { useState } from 'react'
+import CampoFormulario from '../molecules/CampoFormulario'
+import Boton from '../atoms/Boton'
+import { validarCorreo, validarClave, hayErrores } from '../../utils/validaciones'
 
 function FormularioLogin(props) {
+  const [email, setEmail] = useState('')
+  const [clave, setClave] = useState('')
+  const [errores, setErrores] = useState({})
+
+  function enviar(e) {
+    e.preventDefault()
+
+    const nuevosErrores = {
+      email: validarCorreo(email),
+      clave: validarClave(clave),
+    }
+    setErrores(nuevosErrores)
+    if (hayErrores(nuevosErrores)) return
+
+    props.onEnviar({ email: email.trim() })
+  }
+
   return (
-    <Container>
-      <Row className="justify-content-center">
-        <Col xs={12} md={8} lg={5}>
-          <Form onSubmit={props.onSubmit}>
-            <h2 className="mb-4 text-center">Iniciar sesión</h2>
+    <form onSubmit={enviar} noValidate>
+      <h2 className="h4 mb-3">Iniciar sesión</h2>
 
-            <CampoFormulario etiqueta="Correo electrónico" error={props.errorCorreo}>
-              <CampoTexto
-                type="email"
-                placeholder="Correo electrónico"
-                value={props.correo}
-                onChange={props.onChangeCorreo}
-              />
-            </CampoFormulario>
+      <CampoFormulario
+        id="login-email"
+        etiqueta="Correo electrónico"
+        type="email"
+        placeholder="nombre@correo.cl"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        error={errores.email}/>
 
-            <CampoFormulario etiqueta="Contraseña" error={props.errorContrasena}>
-              <CampoTexto
-                type="password"
-                placeholder="Contraseña"
-                value={props.contrasena}
-                onChange={props.onChangeContrasena}
-              />
-            </CampoFormulario>
+      <CampoFormulario
+        id="login-clave"
+        etiqueta="Contraseña"
+        type="password"
+        value={clave}
+        onChange={(e) => setClave(e.target.value)}
+        error={errores.clave}/>
 
-            <Boton texto="Ingresar" type="submit" />
-          </Form>
-        </Col>
-      </Row>
-    </Container>
-  );
+      <Boton type="submit" texto="Ingresar"/>
+    </form>
+  )
 }
 
-export default FormularioLogin;
+export default FormularioLogin

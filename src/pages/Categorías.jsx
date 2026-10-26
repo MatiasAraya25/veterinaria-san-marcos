@@ -1,32 +1,50 @@
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import Navbar from '../components/organisms/Navbar';
+import { useNavigate, useParams } from 'react-router-dom'
+import PlantillaPublica from '../components/templates/PlantillaPublica'
+import ListaServicios from '../components/organisms/ListaServicios'
+import Boton from '../components/atoms/Boton'
+import { categorias } from '../data/categorias'
+import { useServicios } from '../context/ServiciosContext'
+import { useTituloPagina } from '../hooks/useTituloPagina'
 
-const categorias = [
-  { id: 1, nombre: 'Consultas' },
-  { id: 2, nombre: 'Vacunación' },
-  { id: 3, nombre: 'Cirugía' },
-  { id: 4, nombre: 'Desparasitación' },
-  { id: 5, nombre: 'Exámenes' },
-];
 
-function Categorias() {
+export default function Categorias() {
+  const navigate = useNavigate()
+  const params = useParams()
+  const { servicios } = useServicios()
+
+  let visibles = servicios
+  let titulo = 'Categorías de servicios'
+
+  if (params.nombre) {
+    visibles = servicios.filter((s) => s.categoria === params.nombre)
+    titulo = params.nombre
+  }
+  if (params.texto) {
+    const buscado = params.texto.toLowerCase()
+    visibles = servicios.filter((s) => s.nombre.toLowerCase().includes(buscado))
+    titulo = `Resultados para "${params.texto}"`
+  }
+
+  useTituloPagina(titulo)
+
   return (
-    <div>
-      <Navbar />
-      <Container>
-        <h1 className="mb-4">Categorías de servicios</h1>
-        <Row>
-          {categorias.map((cat) => (
-            <Col key={cat.id} xs={12} md={6} lg={4} className="mb-3">
-              <Card className="p-3">
-                <Card.Title>{cat.nombre}</Card.Title>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </div>
-  );
-}
+    <PlantillaPublica>
+      <h1 className="mb-4">{titulo}</h1>
 
-export default Categorias;
+      <div className="d-flex flex-wrap gap-2 mb-4">
+        {categorias.map((c) => (
+          <Boton
+            key={c}
+            texto={c}
+            variante={c === params.nombre ? 'primary' : 'outline-primary'}
+            onClick={() => navigate(`/categoria/${c}`)}/>
+        ))}
+      </div>
+
+      <ListaServicios
+        servicios={visibles}
+        onSolicitar={(codigo) => navigate(`/solicitar-cita/${codigo}`)}
+        onVerDetalle={(codigo) => navigate(`/servicios/${codigo}`)}/>
+    </PlantillaPublica>
+  )
+}
