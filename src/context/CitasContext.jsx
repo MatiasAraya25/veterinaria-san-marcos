@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react'
-import * as citaService from '../data/citaService'
+import * as citaService from '../services/citaService'
 
 const CitasContext = createContext(null)
 

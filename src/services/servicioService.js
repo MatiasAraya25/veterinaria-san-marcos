@@ -1,4 +1,4 @@
-import { servicios as serviciosIniciales } from './servicios'
+import { servicios as serviciosIniciales } from '../data/servicios'
 
 const CLAVE = 'vsm_servicios'
 

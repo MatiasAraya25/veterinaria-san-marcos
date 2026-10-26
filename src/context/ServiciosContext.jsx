@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react'
-import * as servicioService from '../data/servicioService'
+import * as servicioService from '../services/servicioService'
 
 const ServiciosContext = createContext(null)
 
