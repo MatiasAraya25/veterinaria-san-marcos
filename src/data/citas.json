@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "mascota": "Meli",
+    "servicio": "Consulta general",
+    "codigoServicio": "SV001",
+    "fecha": "2026-11-03",
+    "hora": "10:00",
+    "precio": 15000,
+    "estado": "confirmada",
+    "creadaEn": "2026-10-20T14:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "mascota": "Ragnar",
+    "servicio": "Vacuna antirrábica canina",
+    "codigoServicio": "VA001",
+    "fecha": "2026-11-05",
+    "hora": "16:00",
+    "precio": 12000,
+    "estado": "pendiente",
+    "creadaEn": "2026-10-21T10:30:00.000Z"
+  },
+  {
+    "id": 3,
+    "mascota": "Rayo",
+    "servicio": "Consulta urgencia",
+    "codigoServicio": "SV002",
+    "fecha": "2026-11-06",
+    "hora": "20:00",
+    "precio": 35000,
+    "estado": "reprogramada",
+    "creadaEn": "2026-10-21T18:15:00.000Z"
+  }
+]
